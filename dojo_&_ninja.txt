@@ -1,0 +1,44 @@
+dojo1=Dojo.objects.create(name='dania',city='ramallah',State='ps')
+>>> dojo2=Dojo.objects.create(name='shadi',city='ramallah',State='ps')
+>>> dojo3=Dojo.objects.create(name='rahaf',city='ramallah',State='ps')
+>>> dojo_del=Dojo.objects.all()
+>>> dojo_del.delete()
+>>> dojo_hadeel=Dojo.objects.create(name='hadeel',city='ramallah',State='ps')
+>>> dojo_israa=Dojo.objects.create(name='israa',city='nablus',State='ps')
+>>> dojo_hana=Dojo.objects.create(name='hana',city='ramallah',State='ps')
+
+>>> ninja1=Ninja.objects.create(first_name='dania',last_name='khalil',dojo=dojo_hadeel)
+>>> ninja2=Ninja.objects.create(first_name='shadi',last_name='shareef',dojo=dojo_hadeel)
+>>> ninja3=Ninja.objects.create(first_name='rahaf',last_name='hosari',dojo=dojo_hadeel)
+
+>>> ninja4=Ninja.objects.create(first_name='rahaf',last_name='hosari',dojo=dojo_israa)
+>>> ninja5=Ninja.objects.create(first_name='saad',last_name='hroub',dojo=dojo_israa)
+>>> ninja6=Ninja.objects.create(first_name='malik',last_name='shakaa',dojo=dojo_israa)
+
+>>> ninja7=Ninja.objects.create(first_name='fadi',last_name='abuaita',dojo=dojo_hana) 
+>>> ninja8=Ninja.objects.create(first_name='majed',last_name='amira',dojo=dojo_hana)  
+>>> ninja9=Ninja.objects.create(first_name='hanei',last_name='hazem',dojo=dojo_hana)  
+
+>>> ninjas=Ninja.objects.filter(dojo=Dojo.objects.get(id=4))
+>>> print(ninjas)
+>>> for ninja in ninjas:
+...   print(ninja.first_name)
+...
+dania
+shadi
+rahaf
+
+>>> ninjas_last=Ninja.objects.filter(dojo=Dojo.objects.get(id=6))
+>>>
+>>> print(ninjas_last)
+<QuerySet [<Ninja: Ninja object (7)>, <Ninja: Ninja object (8)>, <Ninja: Ninja object (9)>]>
+>>> for i in ninjas_last:
+...     print(i.first_name)
+...
+fadi
+majed
+hanei
+
+>>> dojo_new=Dojo.objects.create(name='dojo1',city='ramallah',State='ps')
+
+
